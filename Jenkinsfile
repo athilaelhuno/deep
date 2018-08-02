@@ -10,7 +10,7 @@ pipeline {
       steps {
         sh 'ls -la'
         sh 'python process.py &'
-        sh 'sh checker.sh &'
+        sh 'sh checker.sh process.py &'
       }
     }
     
