@@ -10,6 +10,7 @@ pipeline {
       steps {
         parallel(
           a: {
+            sh 'hostname'
             sh 'nohup python process.py &'
           },
           b: {
