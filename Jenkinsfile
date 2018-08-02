@@ -11,7 +11,7 @@ pipeline {
       checkout scm
       script{
                 withEnv(['JENKINS_NODE_COOKIE=dontKillMe']) {
-                    sh "runner.sh"
+                    sh "sh runner.sh"
                 }
             }
       }
