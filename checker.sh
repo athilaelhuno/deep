@@ -1,11 +1,17 @@
 #!/bin/sh
+sleep 5
+PROCESS="$1"
+PROCANDARGS=$*
 
-SERVICE="$1"
-RESULT=`ps -a | sed -n /${SERVICE}/p`
-
-if [ "${RESULT:-null}" = null ]; then
-    echo "not running"
-    sudo init 0
-else
-    echo "running"
-fi
+while :
+do
+	ps_out=`ps -ef | grep $1 | grep -v 'grep' | grep -v $0`
+	result=$(echo $ps_out | grep "$1")
+	if [[ "$result" != "" ]];then
+	    echo "Running"
+	else
+	    echo "Not Running"
+	    sudo init 0
+	fi
+  sleep 5
+done
