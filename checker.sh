@@ -1,5 +1,4 @@
 #!/bin/sh
-sleep 5
 PROCESS="$1"
 PROCANDARGS=$*
 
