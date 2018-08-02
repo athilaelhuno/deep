@@ -8,8 +8,8 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'ls -la '
-        sh 'sleep 10'
+        sh 'python process.py &'
+        sh 'checker.sh &'
       }
     }
     
