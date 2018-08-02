@@ -10,10 +10,10 @@ pipeline {
       steps {
         parallel(
           a: {
-            sh 'python process.py &'
+            sh 'nohup python process.py &'
           },
           b: {
-            sh 'sh checker.sh process.py &'
+            sh 'nohup sh checker.sh process.py &'
           }
         )   
       }
