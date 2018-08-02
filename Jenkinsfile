@@ -8,9 +8,14 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'ls -la'
-        sh 'python process.py &'
-        sh 'sh checker.sh process.py &'
+        parallel(
+          a: {
+            sh 'python process.py'
+          },
+          b: {
+            sh 'sh checker.sh process.py'
+          }
+        )   
       }
     }
     
